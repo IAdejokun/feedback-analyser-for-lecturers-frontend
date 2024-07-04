@@ -1,3 +1,29 @@
 import { Routes } from '@angular/router';
+import {SignupComponent} from './pages/signup/signup.component'
+import { LoginComponent } from './pages/login/login.component';
+import { GetStartedComponent } from './pages/get-started/get-started.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { GetHelpComponent } from './pages/get-help/get-help.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    {
+        path:'',
+        component:GetStartedComponent
+    },
+    {
+        path:'signup',
+        component:SignupComponent
+    },
+    {
+        path:'login',
+        component:LoginComponent
+    },
+    {
+        path:'get-help',
+        component:GetHelpComponent
+    },
+    {
+        path:'**',
+        component:NotFoundComponent
+    }
+];
