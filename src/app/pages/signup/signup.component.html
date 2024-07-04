@@ -1,0 +1,228 @@
+<section class="flex my-4 w-[97%] mx-auto">
+    <div class="leftSection w-[40%] md:block hidden">
+        <app-intro-card></app-intro-card>
+    </div>
+    <div class="rightSection w-[40%] mx-auto">
+      
+      @if (signupSuccessful) {
+        
+
+        <!-- Toast -->
+<div class="absolute top-3 end-0">
+  <div class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-neutral-800 dark:border-neutral-700" role="alert">
+    <div class="flex p-4">
+      <div class="flex-shrink-0">
+        <svg class="flex-shrink-0 size-4 text-teal-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+        </svg>
+      </div>
+      <div class="ms-3">
+        <p class="text-sm text-white">
+         {{signUpForm.get('fullName')?.value | titlecase}} your Signup is Successful, Now routing to Login.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Toast -->
+
+      }
+
+
+      @if (signUpForm.get('role')?.value == 'Student') {
+        
+
+        <!-- Toast -->
+<div class="absolute top-3 end-0">
+  <div class="max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-neutral-800 dark:border-neutral-700" role="alert">
+    <div class="flex p-4">
+      <div class="flex-shrink-0">
+        <svg class="flex-shrink-0 size-4 text-teal-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"></path>
+        </svg>
+      </div>
+      <div class="ms-3">
+        <p class="text-sm text-white">
+         A Random Username will be generated for your anonymity: Your random username is: {{shortName}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Toast -->
+
+      } 
+      
+      <!-- <p class="text-right p-5 text-[#030532] font-semibold">Having troubles? <a routerLink="get-help" class="text-[#3365E4] font-bold">Get Help</a></p> -->
+        <p class="text-right p-5 text-[#030532] font-semibold">Have an Account? <a routerLink="../login" class="text-[#3365E4] font-bold">Login</a></p>
+        <div class="getStartedInfo">
+            <h1 class="font-bold text-3xl text-[#030532] mt-9 mb-1">Get Started</h1>
+           
+            <p class="font-light text-md text-[#828282] mb-3">Create Your Account</p>
+           
+           <!-- form start -->
+           <form [formGroup]="signUpForm" (ngSubmit)="signUpFormSubmit()">
+            <!-- formInput start-->
+
+                        <!-- fullName start -->
+                        <div class="relative mt-10 mb-4">
+                          <input type="text" id="hs-floating-input-fullName" formControlName="fullName" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
+                          focus:pt-6
+                          focus:pb-2
+                          [&:not(:placeholder-shown)]:pt-6
+                          [&:not(:placeholder-shown)]:pb-2
+                          autofill:pt-6
+                          autofill:pb-2
+                           {{ signUpForm.get('fullName')?.invalid && signUpForm.get('fullName')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
+                        {{ signUpForm.get('fullName')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}
+                          " placeholder="Fullname">
+                          <label for="hs-floating-input-fullName" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                            peer-focus:scale-90
+                            peer-focus:translate-x-0.5
+                            peer-focus:-translate-y-1.5
+                            peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                            peer-[:not(:placeholder-shown)]:scale-90
+                            peer-[:not(:placeholder-shown)]:translate-x-0.5
+                            peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                            peer-[:not(:placeholder-shown)]:text-gray-500 dark:peer-[:not(:placeholder-shown)]:text-neutral-500 dark:text-neutral-500">Fullname</label>
+                        
+                            <div class="relative" *ngIf="signUpForm.get('fullName')?.invalid && signUpForm.get('fullName')?.touched">
+                                <p class="text-sm text-red-600 mt-2">Please input a valid Name.</p>
+                              </div>
+                    
+                              <div class="relative" *ngIf="signUpForm.get('fullName')?.valid">
+                                <p class="text-sm text-teal-600 mt-2">Looks Good.</p>
+                              </div>
+                        
+                        
+                        </div>
+             
+
+            <!-- Matric Number start -->
+            <div class="relative mb-4 ">
+              <input type="text" id="hs-floating-input-matricOrIdNumber" formControlName="matricOrIdNumber" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2
+               {{ signUpForm.get('matricOrIdNumber')?.invalid && signUpForm.get('matricOrIdNumber')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
+            {{ signUpForm.get('matricOrIdNumber')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}
+              " placeholder="Matric / Id Number">
+              <label for="hs-floating-input-matricOrIdNumber" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:scale-90
+                peer-focus:translate-x-0.5
+                peer-focus:-translate-y-1.5
+                peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                peer-[:not(:placeholder-shown)]:scale-90
+                peer-[:not(:placeholder-shown)]:translate-x-0.5
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-gray-500 dark:peer-[:not(:placeholder-shown)]:text-neutral-500 dark:text-neutral-500">Matric / Id Number</label>
+            
+                <div class="relative" *ngIf="signUpForm.get('matricOrIdNumber')?.invalid && signUpForm.get('matricOrIdNumber')?.touched">
+                    <p class="text-sm text-red-600 mt-2">Please input a valid Matric / Id Number.</p>
+                  </div>
+        
+                  <div class="relative" *ngIf="signUpForm.get('matricOrIdNumber')?.valid">
+                    <p class="text-sm text-teal-600 mt-2">Looks Good.</p>
+                  </div>
+            
+            
+            </div>
+ 
+
+            @if (signUpForm.get('role')?.value == 'Student') {
+                 <!-- username start -->
+            <div class="relative mb-4">
+              <input type="text" [disabled]="true" [readOnly]="true" id="hs-floating-input-matricOrIdNumber" formControlName="randomUser" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2" placeholder="Random Username">
+              <label for="hs-floating-input-matricOrIdNumber" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:scale-90
+                peer-focus:translate-x-0.5
+                peer-focus:-translate-y-1.5
+                peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                peer-[:not(:placeholder-shown)]:scale-90
+                peer-[:not(:placeholder-shown)]:translate-x-0.5
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-gray-500 dark:peer-[:not(:placeholder-shown)]:text-neutral-500 dark:text-neutral-500">{{shortName}}</label>
+            
+            
+            
+            
+            </div>
+            }
+
+
+            <div>
+              <!-- <label for="rolesAvailable" class="block font-bold mt-16 mb-2 text-2xl">University</label> -->
+              <div class="relative mb-4">
+              <select name="role" id="role" formControlName="role" class="py-4 px-4 pe-9 block w-[100%] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+              {{ signUpForm.get('role')?.invalid && signUpForm.get('role')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
+              {{ signUpForm.get('role')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}">
+                <option value="">Please Select a Role</option>
+                <option *ngFor="let role of rolesAvailable"  [value]="role" >{{role}}</option>
+              </select>
+                
+              <div class="relative" *ngIf="signUpForm.get('role')?.invalid && signUpForm.get('role')?.touched">
+              <p class="text-sm text-red-600 mt-2">Please select a Valid Role.</p>
+            </div>
+  
+            <div class="relative" *ngIf="signUpForm.get('role')?.valid">
+              <p class="text-sm text-teal-600 mt-2">Looks Good.</p>
+            </div>
+  
+            </div>
+              
+            </div>
+
+            <!-- select end -->
+
+        <!-- password start -->
+            <div class="relative">
+              <input type="password" formControlName="password" id="hs-floating-input-password" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
+              focus:pt-6
+              focus:pb-2
+              [&:not(:placeholder-shown)]:pt-6
+              [&:not(:placeholder-shown)]:pb-2
+              autofill:pt-6
+              autofill:pb-2
+               {{ signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
+            {{ signUpForm.get('password')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}
+              " placeholder="Password">
+              <label for="hs-floating-input-password" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
+                peer-focus:scale-90
+                peer-focus:translate-x-0.5
+                peer-focus:-translate-y-1.5
+                peer-focus:text-gray-500 dark:peer-focus:text-neutral-500
+                peer-[:not(:placeholder-shown)]:scale-90
+                peer-[:not(:placeholder-shown)]:translate-x-0.5
+                peer-[:not(:placeholder-shown)]:-translate-y-1.5
+                peer-[:not(:placeholder-shown)]:text-gray-500 dark:peer-[:not(:placeholder-shown)]:text-neutral-500 dark:text-neutral-500">Password</label>
+            
+                <div class="relative" *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
+                    <p class="text-sm text-red-600 mt-2">Please input a valid Password.</p>
+                  </div>
+        
+                  <div class="relative" *ngIf="signUpForm.get('password')?.valid">
+                    <p class="text-sm text-teal-600 mt-2">Looks Good.</p>
+                  </div>
+            
+            </div>
+
+            <!-- formInput end -->
+            
+            <button type="submit" [disabled]="signUpForm.invalid" value="submit" class="btn font-semibold bg-[#3365E4] mt-10 text-white w-[100%] p-3 rounded-lg
+            [class.bg-gray-400]='!signUpForm.valid' [class.#8533C6]='signUpForm.valid
+            ">Get Started</button>
+            </form>
+            <!-- form end -->
+
+        </div>
+    </div>
+</section>
