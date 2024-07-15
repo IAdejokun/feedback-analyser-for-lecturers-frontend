@@ -15,6 +15,7 @@ import { DataService } from '../../service/data.service';
 })
 export class LoginComponent implements OnInit, OnDestroy {
 
+  userId !: string;
   
   subscription!: Subscription;
 
@@ -50,11 +51,16 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.logInSuccessful = true;
 
     console.log(this.logInForm.value);
-
+    // this.logInForm.reset();
       setInterval(
         ()=>{
-          this.logInForm.reset();
-          this.route.navigateByUrl('')
+          if (this.logInForm.valid) {
+             if (this.logInForm.get('role')?.value != 'Student') {
+              this.route.navigateByUrl('/lecturer/dashboard' );
+             }else{
+              this.route.navigateByUrl('/student/dashboard')
+             }
+          }
         }, 6000
       )
    

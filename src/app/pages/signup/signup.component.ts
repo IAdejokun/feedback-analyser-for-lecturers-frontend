@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit, OnDestroy{
 
   signUpForm = new FormGroup({
     fullName: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    randomUser: new FormControl('', [Validators.required]),
+    randomUser: new FormControl(''),
     matricOrIdNumber: new FormControl('', [Validators.required, Validators.minLength(10)]),
     role: new FormControl('', [Validators.required, Validators.minLength(6)]),
     password: new FormControl('', [Validators.required, Validators.minLength(10)]),
