@@ -1,0 +1,40 @@
+<div class=" bg-white border border-gray-200 shadow-sm rounded-xl p-4 w-full md:p-5">
+    <h4 class="text-2xl font-semibold p-3">Relative Words</h4>
+    <table class="table-auto w-full">
+        <thead>
+          <tr class="text-left">
+            <th>Song</th>
+            <th>Artist</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr>
+            <td>{{wordOne}}</td>
+            <td>{{countOne}}</td>
+            <td>{{accuracyOne | percent:'1.0-0'}}</td>
+          </tr>
+          <tr>
+            <td>{{wordTwo}}</td>
+            <td>{{countTwo}}</td>
+            <td>{{accuracyTwo | percent:'1.0-0'}}</td>
+          </tr>
+          <tr>
+            <td>{{wordThree}}</td>
+            <td>{{countThree}}</td>
+            <td>{{accuracyThree | percent:'1.0-0'}}</td>
+          </tr>
+          <tr>
+            <td>{{wordFour}}</td>
+            <td>{{countFour}}</td>
+            <td>{{accuracyFour  | percent:'1.0-0'}}</td>
+          </tr>
+          <tr>
+            <td>{{wordFive}}</td>
+            <td>{{countFive}}</td>
+            <td>{{accuracyFive  | percent:'1.0-0'}}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

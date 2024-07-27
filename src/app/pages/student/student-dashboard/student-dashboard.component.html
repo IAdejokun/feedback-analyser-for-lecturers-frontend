@@ -1,1 +1,39 @@
-<p>student-dashboard works!</p>
+<section class="flex space-x-64">
+    <div class="menu">
+        <app-student-sidebar></app-student-sidebar>
+    </div>
+
+    <!-- main dashboard  -->
+    <div class="mainBoard mt-6">
+
+        <!-- navigation head -->
+        <div class="nav">
+            <app-student-nav></app-student-nav>
+        </div>
+
+        <!-- student details -->
+    
+        <h3 class="text-4xl font-bold p-2 py-1 mt-4">Welcome {{user.userName}}</h3>
+
+        <!-- stats section -->
+        <h2 class="text-5xl font-semibold p-2 py-1 mt-4">Statistics</h2>
+
+        
+        <section>
+            <div class="flex flex-col lg:flex-row justify-between gap-4 mx-1 w-[96%]  mt-7">
+           
+            <div id="chart" class="w-[80%]">
+               
+            </div>
+
+            <div id="similarWords" class="w-[70%]">
+               
+            </div>
+
+        </div>
+            
+        </section>
+        
+
+    </div>
+</section>

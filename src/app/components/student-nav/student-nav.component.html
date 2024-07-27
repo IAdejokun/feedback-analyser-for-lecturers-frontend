@@ -1,0 +1,49 @@
+<div class="flex gap-3 md:gap-[5rem] lg:gap-[15rem] xl:gap-[34rem] items-center">
+
+    <div class="flex">
+        <div class="flex bg-gray-100 hover:bg-gray-200 rounded-lg transition p-1">
+          <nav class="flex space-x-2">
+            <a class="py-2 px-3 inline-flex items-center gap-2 bg-white text-sm text-[#3365E4] font-medium rounded-lg shadow-sm" href="#" aria-current="page">
+              Overview
+            </a>
+          </nav>
+        </div>
+      </div>
+    
+      <div class="flex gap-4">
+        <!-- notification btn -->
+        <button type="button" class="relative inline-flex justify-center mt-1 items-center h-[2rem] w-[2.7rem] text-sm font-semibold rounded-lg border border-gray-200 bg-white text-black shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-black dark:border-[#D6D6D6] dark:text-white dark:hover:bg-[#3365E4]">
+            <svg class="flex-shrink-0 size-5 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+                <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+              </svg>
+            @if (notificationAvailable) {
+                <span class="absolute top-0 end-0 inline-flex items-center size-3.5 rounded-full border-2 border-white text-xs font-medium transform -translate-y-1/2 translate-x-1/2 bg-red-500 text-white ">
+                    <span class="sr-only">Badge value</span>
+                  </span>
+            }
+            
+          </button>
+    
+          <!-- chat btn -->
+          <button type="button" class="py-1 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200  text-white shadow-sm hover:bg-[#3365E4] disabled:opacity-50 bg-black">
+            <svg class="size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path> </svg>
+            Chats
+          </button>
+    
+    
+          <!-- avatar section -->
+      
+          <div class="flex-shrink-0 group block">
+            <div class="flex items-center">
+              <img class="inline-block flex-shrink-0 size-[40px] rounded-full" src={{userImg}} alt="Image Description">
+              <div class="ms-3">
+                <h3 class="font-semibold text-gray-800">{{userName}}</h3>
+                <p class="text-sm font-medium text-gray-400">{{idNumber}}</p>
+              </div>
+            </div>
+          </div>
+    
+        </div>
+    
+    </div>

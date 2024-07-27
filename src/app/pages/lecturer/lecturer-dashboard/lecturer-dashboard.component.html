@@ -9,5 +9,32 @@
             <app-lecturer-nav></app-lecturer-nav>
         </div>
 
+        <!-- lecturer details -->
+        <section id="lecturerFeedbackDetails" class="flex flex-col lg:flex-row justify-between gap-1 mx-1 w-[96%]  mt-7">
+            <app-lecturer-dashboard-total-courses></app-lecturer-dashboard-total-courses>
+            <app-lecturer-dashboard-total-students></app-lecturer-dashboard-total-students>
+            <app-lecturer-dashboard-feedbacknumber></app-lecturer-dashboard-feedbacknumber>
+        </section>
+
+        <!-- stats section -->
+        <h2 class="text-5xl font-semibold p-2 py-1 mt-4">Statistics</h2>
+
+        
+        <section>
+            <div class="flex flex-col lg:flex-row justify-between gap-4 mx-1 w-[96%]  mt-7">
+           
+            <div id="chart" class="w-[80%]">
+                <app-chart></app-chart>
+            </div>
+
+            <div id="similarWords" class="w-[70%]">
+               <app-relative-words></app-relative-words> 
+            </div>
+
+        </div>
+            
+        </section>
+        
+
     </div>
 </section>

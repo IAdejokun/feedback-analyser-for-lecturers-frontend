@@ -29,7 +29,7 @@
       }
 
 
-      @if (signUpForm.get('role')?.value == 'Student') {
+      @if (signUpForm.get('role')?.value == 'student') {
         
 
         <!-- Toast -->
@@ -132,17 +132,17 @@
             </div>
  
 
-            @if (signUpForm.get('role')?.value == 'Student') {
+            @if (signUpForm.get('role')?.value == 'student') {
                  <!-- username start -->
             <div class="relative mb-4">
-              <input type="text" [disabled]="true" [readOnly]="true" id="hs-floating-input-matricOrIdNumber" formControlName="randomUser" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
+              <input type="text" [disabled]="true" [readOnly]="true" id="hs-floating-input-randomUser" formControlName="randomUser" class="peer p-4 block w-full border-[#E0E0E0] rounded-lg text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  
               focus:pt-6
               focus:pb-2
               [&:not(:placeholder-shown)]:pt-6
               [&:not(:placeholder-shown)]:pb-2
               autofill:pt-6
               autofill:pb-2" placeholder="Random Username">
-              <label for="hs-floating-input-matricOrIdNumber" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
+              <label for="hs-floating-input-randomUser" class="absolute top-0 start-0 p-3 h-full text-base truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0]  peer-disabled:opacity-50 peer-disabled:pointer-events-none
                 peer-focus:scale-90
                 peer-focus:translate-x-0.5
                 peer-focus:-translate-y-1.5
