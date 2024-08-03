@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-lecturer-nav',
@@ -16,4 +16,13 @@ export class LecturerNavComponent {
   userName = 'Mark Wanner'
 
   idNumber = 'PG/23/14/001';
+
+  activeView = 'Overview';
+
+  @Output() passActiveView = new EventEmitter<string>();
+  
+  setActiveView(view:string){
+    this.activeView = view;
+    this.passActiveView.emit(this.activeView)
+  }
 }

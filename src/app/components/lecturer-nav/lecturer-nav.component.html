@@ -2,11 +2,23 @@
 
 <div class="flex">
     <div class="flex bg-gray-100 hover:bg-gray-200 rounded-lg transition p-1">
-      <nav class="flex space-x-2">
-        <a class="py-2 px-3 inline-flex items-center gap-2 bg-white text-sm text-[#3365E4] font-medium rounded-lg shadow-sm" href="#" aria-current="page">
+      <nav class="flex space-x-2 cursor-pointer">
+        <a class="py-2 px-3 inline-flex items-center gap-2 text-sm 
+        text-[#3365E4] font-medium"
+        [class.bg-transparent] = "activeView !== 'Overview'"
+        [class.text-gray-500] = "activeView !== 'Overview'"
+        [class.bg-white] = "activeView == 'Overview'"
+         [class.rounded-lg] = "activeView == 'Overview'"
+          [class.shadow-sm] = "activeView == 'Overview'"
+        (click)="setActiveView('Overview')"
+        aria-current="page">
           Overview
         </a>
-        <a class="py-2 px-3 inline-flex items-center gap-2 bg-transparent text-sm text-gray-500 hover:text-gray-700 font-medium rounded-lg hover:hover:text-[#3365E4]" href="#">
+        <a class="py-2 px-3 inline-flex items-center gap-2 bg-transparent text-sm text-gray-500 hover:text-gray-700 font-medium rounded-lg hover:hover:text-[#3365E4]"
+        [class.bg-white] = "activeView == 'Feedback'"
+        [class.text-[#3365e4]] = "activeView == 'Feedback'"
+        (click) = "setActiveView('Feedback')"
+         >
           Feedback
         </a>
       </nav>

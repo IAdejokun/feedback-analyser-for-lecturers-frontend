@@ -6,8 +6,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { GetHelpComponent } from './pages/get-help/get-help.component';
 import { LecturerDashboardComponent } from './pages/lecturer/lecturer-dashboard/lecturer-dashboard.component';
 import { StudentDashboardComponent } from './pages/student/student-dashboard/student-dashboard.component';
-import { BrowseCoursesComponent } from './pages/browse-courses/browse-courses.component';
-import { AccountComponent } from './pages/account/account.component';
+import { StudentAccountComponent } from './pages/student/account/account.component';
+import { LecturerAccountComponent } from './pages/lecturer/account/account.component';
+import { LecturerBrowseCoursesComponent } from './pages/lecturer/browse-courses/browse-courses.component';
+import { StudentBrowseCoursesComponent } from './pages/student/browse-courses/browse-courses.component';
 
 export const routes: Routes = [
     {
@@ -28,39 +30,19 @@ export const routes: Routes = [
     },
     {
         path:'lecturer/account',
-        redirectTo:'lecturer/account/:username',
-        pathMatch:'full'
-    },
-    {
-        path:'lecturer',
-        redirectTo:'lecturer/dashboard',
-        pathMatch:'full'
+        component:LecturerAccountComponent
     },
     {
         path:'lecturer/browseCourses',
-        component:BrowseCoursesComponent
-    },
-    {
-        path:'lecturer/account/:username',
-        component:AccountComponent
-    },
-    {
-        path:'lecturer/lecturer/dashboard',
-        redirectTo:'lecturer/dashboard',
-        pathMatch:'full'
-    },
-    {
-        path:'lecturer/lecturer/browseCourses',
-        redirectTo:'lecturer/browseCourses',
-        pathMatch:'full'
+        component:LecturerBrowseCoursesComponent
     },
     {
         path:'student/browseCourses',
-        component:BrowseCoursesComponent
+        component:StudentBrowseCoursesComponent
     },
     {
-        path:'student/account/:username',
-        component:AccountComponent
+        path:'student/account',
+        component:StudentAccountComponent
     },
     {
         path:'student/dashboard',
@@ -74,6 +56,26 @@ export const routes: Routes = [
     {
         path:'get-help',
         component:GetHelpComponent
+    },
+    {
+        path:'lecturer/account',
+        redirectTo:'lecturer/account/:username',
+        pathMatch:'full'
+    },
+    {
+        path:'lecturer',
+        redirectTo:'lecturer/dashboard',
+        pathMatch:'full'
+    },
+    {
+        path:'lecturer/lecturer/dashboard',
+        redirectTo:'lecturer/dashboard',
+        pathMatch:'full'
+    },
+    {
+        path:'lecturer/lecturer/browseCourses',
+        redirectTo:'lecturer/browseCourses',
+        pathMatch:'full'
     },
     {
         path:'**',
