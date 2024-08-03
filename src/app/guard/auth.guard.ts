@@ -11,7 +11,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   if(!authService.isLoggedIn()){
     return router.createUrlTree(['/login']);
   }
-
+  //check role of user
    const user_role = authService.getUserRole();
    const required_role = route.data['role'];
 
