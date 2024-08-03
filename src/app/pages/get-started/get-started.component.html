@@ -19,11 +19,11 @@
           <div>
             <label for="university" class="block font-bold mt-16 mb-2 text-2xl">University</label>
             <div class="relative">
-            <select name="university" id="university" formControlName="universityName" class="py-3 px-4 pe-9 block w-[80%] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
+            <select name="university" id="university" formControlName="university" class="py-3 px-4 pe-9 block w-[80%] border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none 
             {{ gettingStartedForm.get('universityName')?.invalid && gettingStartedForm.get('universityName')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
             {{ gettingStartedForm.get('universityName')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}">
               <option value="">Please Select a University</option>
-              <option *ngFor="let university of universitiesAvailable"  [value]="university" >{{university}}</option>
+              <option *ngFor="let university of universitiesAvailable"  [value]="university.id" >{{university.name}}</option>
             </select>
               
             <div class="relative" *ngIf="gettingStartedForm.get('universityName')?.invalid && gettingStartedForm.get('universityName')?.touched">

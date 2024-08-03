@@ -79,7 +79,7 @@
             {{ logInForm.get('role')?.invalid && logInForm.get('role')?.touched ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : '' }}
             {{ logInForm.get('role')?.valid ? 'border-teal-500 focus:border-teal-500 focus:ring-teal-500' : '' }}">
               <option value="">Please Select a Role</option>
-              <option *ngFor="let role of rolesAvailable"  [value]="role" >{{role}}</option>
+              <option *ngFor="let role of rolesAvailable"  [value]="role" >{{role | titlecase}}</option>
             </select>
               
             <div class="relative" *ngIf="logInForm.get('role')?.invalid && logInForm.get('role')?.touched">

@@ -44,13 +44,13 @@ export class SignupComponent implements OnInit, OnDestroy{
     role: new FormControl('', [Validators.required, Validators.minLength(6)]),
     password: new FormControl('', [Validators.required, Validators.minLength(10)]),
     university: new FormControl('', [Validators.required])
-  
   })
 
 
   ngOnInit(): void {
       this.subscription = this.uniData.getSharedData().subscribe(data => {
         this.signUpForm.get('university')?.setValue(data)
+        console.log(data)
       })
   }
 
@@ -73,8 +73,8 @@ export class SignupComponent implements OnInit, OnDestroy{
         id_or_matricn_number: this.signUpForm.get('matricOrIdNumber')?.value,
         user_type: this.signUpForm.get('role')?.value,
         password: this.signUpForm.get('password')?.value,
-        university_name: this.signUpForm.get('university')?.value,
-        username: this.signUpForm.get('role')?.value === 'Student' ? this.signUpForm.get('randomUser')?.value : this.signUpForm.get('matricOrIdNumber')?.value
+        university: this.signUpForm.get('university')?.value,
+        username: this.signUpForm.get('role')?.value === 'Student' ? this.signUpForm.get('randomUser')?.value : this.signUpForm.get('fullName')?.value
         }
     
       console.log(userData)
