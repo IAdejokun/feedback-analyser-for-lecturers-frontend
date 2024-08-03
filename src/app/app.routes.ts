@@ -10,11 +10,14 @@ import { StudentAccountComponent } from './pages/student/account/account.compone
 import { LecturerAccountComponent } from './pages/lecturer/account/account.component';
 import { LecturerBrowseCoursesComponent } from './pages/lecturer/browse-courses/browse-courses.component';
 import { StudentBrowseCoursesComponent } from './pages/student/browse-courses/browse-courses.component';
+import { authGuard } from './guard/auth.guard';
+import { roleRedirectGuard } from './guard/role-redirect.guard';
 
 export const routes: Routes = [
     {
         path:'',
-        component:GetStartedComponent
+        component:GetStartedComponent,
+        canActivate:[roleRedirectGuard]
     },
     {
         path:'signup',
@@ -26,27 +29,39 @@ export const routes: Routes = [
     },
     {
         path:'lecturer/dashboard',
-        component:LecturerDashboardComponent
+        component:LecturerDashboardComponent,
+        canActivate:[authGuard],
+        data:{role:'lecturer'}
     },
     {
         path:'lecturer/account',
-        component:LecturerAccountComponent
+        component:LecturerAccountComponent,
+        canActivate:[authGuard],
+        data:{role:'lecturer'}
     },
     {
         path:'lecturer/browseCourses',
-        component:LecturerBrowseCoursesComponent
+        component:LecturerBrowseCoursesComponent,
+        canActivate:[authGuard],
+        data:{role:'lecturer'}
     },
     {
         path:'student/browseCourses',
-        component:StudentBrowseCoursesComponent
+        component:StudentBrowseCoursesComponent,
+        canActivate:[authGuard],
+        data:{role:'student'}
     },
     {
         path:'student/account',
-        component:StudentAccountComponent
+        component:StudentAccountComponent,
+        canActivate:[authGuard],
+        data:{role:'student'}
     },
     {
         path:'student/dashboard',
-        component:StudentDashboardComponent
+        component:StudentDashboardComponent,
+        canActivate:[authGuard],
+        data:{role:'student'}
     },
     {
         path:'student',
@@ -59,7 +74,7 @@ export const routes: Routes = [
     },
     {
         path:'lecturer/account',
-        redirectTo:'lecturer/account/:username',
+        redirectTo:'lecturer/account',
         pathMatch:'full'
     },
     {
