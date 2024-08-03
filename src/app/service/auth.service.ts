@@ -8,7 +8,7 @@ import {tap} from 'rxjs/operators';
 })
 export class AuthService {
 
-  private apiUrl = 'http://127.0.0.1:8000/api';
+  private apiUrl = 'http://127.0.0.1:8000/account';
 
   constructor(private http: HttpClient) { }
   
@@ -22,6 +22,17 @@ export class AuthService {
     )
   }
 
+
+  // get user role
+  getUserRole(): string | null {
+    return localStorage.getItem('user_type');
+  }
+
+  //get universities list
+  getUniversities(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/universitylist`)
+  }
+
   private setSession(authResult: any) {
     localStorage.setItem('token', authResult.token);
     localStorage.setItem('user_type', authResult.user_type);
@@ -30,13 +41,17 @@ export class AuthService {
     localStorage.setItem('id_or_matricn_number', authResult.id_or_matricn_number);
   }
 
-  logout(){
-    localStorage.removeItem('token');
-    localStorage.removeItem('user_type');
-    localStorage.removeItem('user_id');
-    localStorage.removeItem('university_name');
-    localStorage.removeItem('id_or_matricn_number');
+  getToken(){
+    return localStorage.getItem('token');
   }
+
+  // logout(){
+  //   localStorage.removeItem('token');
+  //   localStorage.removeItem('user_type');
+  //   localStorage.removeItem('user_id');
+  //   localStorage.removeItem('university_name');
+  //   localStorage.removeItem('id_or_matricn_number');
+  // }
 
   isLoggedIn(){
     return !!localStorage.getItem('token');
