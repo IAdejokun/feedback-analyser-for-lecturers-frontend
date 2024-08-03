@@ -6,14 +6,61 @@ import { LecturerDashboardTotalCoursesComponent } from '../../../components/lect
 import { LecturerDashboardFeedbacknumberComponent } from '../../../components/lecturer-dashboard-feedbacknumber/lecturer-dashboard-feedbacknumber.component';
 import { ChartComponent } from '../../../components/chart/chart.component';
 import { RelativeWordsComponent } from '../../../components/relative-words/relative-words.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-lecturer-dashboard',
   standalone: true,
-  imports: [SidebarComponent, RelativeWordsComponent,ChartComponent, LecturerNavComponent, LecturerDashboardTotalStudentsComponent, LecturerDashboardTotalCoursesComponent, LecturerDashboardFeedbacknumberComponent],
+  imports: [SidebarComponent, RelativeWordsComponent,ChartComponent, LecturerNavComponent, LecturerDashboardTotalStudentsComponent, LecturerDashboardTotalCoursesComponent, LecturerDashboardFeedbacknumberComponent, RouterLink],
   templateUrl: './lecturer-dashboard.component.html',
   styleUrl: './lecturer-dashboard.component.css'
 })
 export class LecturerDashboardComponent {
-    
+
+  getView = 'Overview'
+  
+  receiveView($event: any){
+    console.log($event);
+    this.getView = $event
+  }
+
+
+  courses = [{
+    courseCode: 'CSC101',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC201',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC301',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC401',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC501',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC601',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  },{
+    courseCode: 'CSC701',
+    courseName: 'Introduction to Computer Science',
+    instructorName: 'John Doe',
+    owner: 'John Doe'
+  }
+  ]
+
 }

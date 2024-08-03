@@ -6,8 +6,12 @@
 
         <!-- navigation head -->
         <div class="nav">
-            <app-lecturer-nav></app-lecturer-nav>
+            <app-lecturer-nav (passActiveView)="receiveView($event)"></app-lecturer-nav>
         </div>
+
+       
+        @if (getView == 'Overview') {
+            <!-- overview starts -->
 
         <!-- lecturer details -->
         <section id="lecturerFeedbackDetails" class="flex flex-col lg:flex-row justify-between gap-1 mx-1 w-[96%]  mt-7">
@@ -35,6 +39,37 @@
             
         </section>
         
+        <!-- overview ends -->
 
+        } @else {
+            <!--feedback view  -->
+            <h3 class="text-5xl font-bold p-5 my-7">Feedback Received</h3>
+
+            <table class="table-auto w-full">
+                <thead>
+                  <tr class="text-left text-gray-500 text-sm font-medium">
+                    <th class="py-3 text-lg font-semibold">Course Code</th>
+                    <th class="py-3 text-lg font-semibold">Course Name</th>
+                    <th class="py-3 text-lg font-semibold">Rating</th>
+                    <th class="py-3 text-lg font-semibold">Owner</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  
+                    @for (course of courses; track $index) {
+                        <tr class="hover:bg-gray-300 p-3">
+                            <td class="py-3"><a class="cursor-pointer hover:text-blue-500 hover:underline" routerLink="/browse-courses/{{course.courseCode}}">{{course.courseCode}}</a></td>
+                            <td><a class="cursor-pointer hover:text-blue-500 hover:underline" routerLink="/browse-courses/{{course.courseCode}}">{{course.courseName}}</a></td>
+                            <td>{{course.instructorName}}</td>
+                            <td>{{course.owner}}</td>
+                          </tr>
+                    }
+                    
+                </tbody>
+              </table>
+        }
+
+        
     </div>
 </section>
