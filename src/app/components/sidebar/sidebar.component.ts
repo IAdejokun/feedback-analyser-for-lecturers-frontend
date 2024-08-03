@@ -10,7 +10,6 @@ import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class SidebarComponent {
 
-  username !: string | null;
-
+ 
 
 }

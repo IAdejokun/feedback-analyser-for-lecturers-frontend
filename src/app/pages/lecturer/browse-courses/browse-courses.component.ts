@@ -2,16 +2,25 @@ import { Component } from '@angular/core';
 import { LecturerNavComponent } from '../../../components/lecturer-nav/lecturer-nav.component';
 import { RouterLink } from '@angular/router';
 import { SidebarComponent } from '../../../components/sidebar/sidebar.component';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-browse-courses',
   standalone: true,
-  imports: [LecturerNavComponent, RouterLink, SidebarComponent],
+  imports: [LecturerNavComponent, RouterLink, ReactiveFormsModule,SidebarComponent],
   templateUrl: './browse-courses.component.html',
   styleUrl: './browse-courses.component.css'
 })
 export class LecturerBrowseCoursesComponent {
   
+
+
+  // create course 
+
+  createCourseForm = new FormGroup({
+    courseCode: new FormControl
+  })
+
   courses = [{
     courseCode: 'CSC101',
     courseName: 'Introduction to Computer Science',
